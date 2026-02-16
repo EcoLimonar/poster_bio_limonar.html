@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Póster de Biodiversidad - El Limonar</title>
+    <title>Biodiversidad - El Limonar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -14,10 +14,20 @@
             background-color: #f5f5f4;
         }
 
-        @media print {
-            .no-print {
-                display: none !important;
+        /* Ajuste para que el contenedor sea fluido en móviles y fijo en pantallas grandes si se desea imprimir */
+        .poster-container {
+            width: 100%;
+            max-width: 210mm; /* Tamaño máximo A4 */
+            min-height: 100vh;
+        }
+
+        @media (min-width: 768px) {
+            .poster-container {
+                min-height: 297mm;
             }
+        }
+
+        @media print {
             body {
                 background-color: white !important;
                 padding: 0 !important;
@@ -36,145 +46,113 @@
                 border: 10px solid #064e3b !important;
             }
         }
-
-        .poster-container {
-            width: 210mm;
-            min-height: 297mm;
-        }
     </style>
 </head>
-<body class="p-4 md:p-10 flex flex-col items-center">
-
-    <!-- BOTONES DE ACCIÓN (No se imprimen) -->
-    <div class="no-print mb-8 flex gap-4">
-        <button onclick="window.print()" class="flex items-center gap-2 bg-emerald-800 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:bg-emerald-900 transition-all active:scale-95">
-            <i data-lucide="printer" class="w-5 h-5"></i>
-            IMPRIMIR / GUARDAR PDF
-        </button>
-        <button onclick="downloadHTML()" class="flex items-center gap-2 bg-white text-emerald-800 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl border border-emerald-100 hover:bg-emerald-50 transition-all active:scale-95">
-            <i data-lucide="download" class="w-5 h-5"></i>
-            DESCARGAR ARCHIVO
-        </button>
-    </div>
+<body class="p-0 md:p-10 flex flex-col items-center">
 
     <!-- CONTENEDOR DEL PÓSTER -->
-    <div class="poster-container bg-white shadow-2xl p-8 md:p-14 flex flex-col items-center justify-between border-[14px] border-[#064e3b] rounded-[3.5rem] relative overflow-hidden">
+    <div class="poster-container bg-white shadow-2xl p-6 md:p-14 flex flex-col items-center justify-between border-[8px] md:border-[14px] border-[#064e3b] md:rounded-[3.5rem] relative overflow-hidden">
         
         <!-- Elementos decorativos de fondo -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-50 rounded-full blur-[100px] opacity-40 -mr-20 -mt-20"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-100 rounded-full blur-[100px] opacity-30 -ml-20 -mb-20"></div>
+        <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-emerald-50 rounded-full blur-[80px] md:blur-[100px] opacity-40 -mr-20 -mt-20"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-emerald-100 rounded-full blur-[80px] md:blur-[100px] opacity-30 -ml-20 -mb-20"></div>
 
         <!-- ENCABEZADO -->
         <div class="text-center z-10 w-full mb-6">
-            <img src="https://lh3.googleusercontent.com/d/1LNTkboFIGhJdPeAVw-08ffqZQP3cqIHm" alt="Logo El Limonar" class="h-24 mx-auto mb-4 object-contain" />
-            <h1 class="text-5xl font-black text-[#064e3b] uppercase tracking-tighter mb-2 leading-none">
+            <img src="https://lh3.googleusercontent.com/d/1ztBfLJJwmhC1V2Ui0JRY9HKTllaUpkoR" alt="Logo El Limonar" class="h-20 md:h-24 mx-auto mb-4 object-contain" onerror="this.src='https://via.placeholder.com/150?text=Logo+El+Limonar'" />
+            <h1 class="text-3xl md:text-5xl font-black text-[#064e3b] uppercase tracking-tighter mb-2 leading-none">
                 Nuestros Vecinos <br/> <span class="text-emerald-600">Silvestres</span>
             </h1>
-            <p class="text-lg font-medium text-stone-400 max-w-md mx-auto leading-tight italic">
+            <p class="text-sm md:text-lg font-medium text-stone-400 max-w-xs md:max-w-md mx-auto leading-tight italic">
                 Descubre la riqueza natural de El Limonar en tu bolsillo
             </p>
         </div>
 
         <!-- GALERÍA DE ESPECIES -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full z-10 mb-8 px-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full z-10 mb-8 px-2 md:px-4">
             <div class="flex flex-col items-center">
-                <div class="w-full aspect-square rounded-[1.5rem] overflow-hidden border-4 border-stone-50 shadow-md">
+                <div class="w-full aspect-square rounded-[1rem] md:rounded-[1.5rem] overflow-hidden border-2 md:border-4 border-stone-50 shadow-md bg-stone-100">
                     <img src="https://lh3.googleusercontent.com/d/1qoyIz0TLmrEo935n0VkqpLMpj2F-zcvs" alt="Mono Marteja" class="w-full h-full object-cover" />
                 </div>
-                <p class="mt-2 text-[8px] font-black uppercase tracking-[0.2em] text-emerald-800 text-center">Mono Marteja</p>
+                <p class="mt-2 text-[7px] md:text-[8px] font-black uppercase tracking-[0.1em] md:tracking-[0.2em] text-emerald-800 text-center">Mono Marteja</p>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-full aspect-square rounded-[1.5rem] overflow-hidden border-4 border-stone-50 shadow-md">
+                <div class="w-full aspect-square rounded-[1rem] md:rounded-[1.5rem] overflow-hidden border-2 md:border-4 border-stone-50 shadow-md bg-stone-100">
                     <img src="https://lh3.googleusercontent.com/d/18Am6EdZcpS7rluz1ce0mq1qupCCUxU9q" alt="Guacamaya" class="w-full h-full object-cover" />
                 </div>
-                <p class="mt-2 text-[8px] font-black uppercase tracking-[0.2em] text-emerald-800 text-center">Guacamaya Bandera</p>
+                <p class="mt-2 text-[7px] md:text-[8px] font-black uppercase tracking-[0.1em] md:tracking-[0.2em] text-emerald-800 text-center">Guacamaya Bandera</p>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-full aspect-square rounded-[1.5rem] overflow-hidden border-4 border-stone-50 shadow-md">
+                <div class="w-full aspect-square rounded-[1rem] md:rounded-[1.5rem] overflow-hidden border-2 md:border-4 border-stone-50 shadow-md bg-stone-100">
                     <img src="https://lh3.googleusercontent.com/d/1cyQq43aizGJPcQ8s_KT6lP40nhbfGyPK" alt="Ardilla" class="w-full h-full object-cover" />
                 </div>
-                <p class="mt-2 text-[8px] font-black uppercase tracking-[0.2em] text-emerald-800 text-center">Ardilla Cola Roja</p>
+                <p class="mt-2 text-[7px] md:text-[8px] font-black uppercase tracking-[0.1em] md:tracking-[0.2em] text-emerald-800 text-center">Ardilla Cola Roja</p>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-full aspect-square rounded-[1.5rem] overflow-hidden border-4 border-stone-50 shadow-md">
+                <div class="w-full aspect-square rounded-[1rem] md:rounded-[1.5rem] overflow-hidden border-2 md:border-4 border-stone-50 shadow-md bg-stone-100">
                     <img src="https://lh3.googleusercontent.com/d/1UuGunzSRgT_zWhv4IHB7127Xsq91EKeW" alt="Tortuga" class="w-full h-full object-cover" />
                 </div>
-                <p class="mt-2 text-[8px] font-black uppercase tracking-[0.2em] text-emerald-800 text-center">Tortuga Morrocoy</p>
+                <p class="mt-2 text-[7px] md:text-[8px] font-black uppercase tracking-[0.1em] md:tracking-[0.2em] text-emerald-800 text-center">Tortuga Morrocoy</p>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-full aspect-square rounded-[1.5rem] overflow-hidden border-4 border-stone-50 shadow-md">
+                <div class="w-full aspect-square rounded-[1rem] md:rounded-[1.5rem] overflow-hidden border-2 md:border-4 border-stone-50 shadow-md bg-stone-100">
                     <img src="https://lh3.googleusercontent.com/d/1OYrdh2RnWE2X5wGhYZhr1YX9CYP0gP1X" alt="Rana" class="w-full h-full object-cover" />
                 </div>
-                <p class="mt-2 text-[8px] font-black uppercase tracking-[0.2em] text-emerald-800 text-center">Rana de Cristal</p>
+                <p class="mt-2 text-[7px] md:text-[8px] font-black uppercase tracking-[0.1em] md:tracking-[0.2em] text-emerald-800 text-center">Rana de Cristal</p>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-full aspect-square rounded-[1.5rem] overflow-hidden border-4 border-stone-50 shadow-md">
+                <div class="w-full aspect-square rounded-[1rem] md:rounded-[1.5rem] overflow-hidden border-2 md:border-4 border-stone-50 shadow-md bg-stone-100">
                     <img src="https://lh3.googleusercontent.com/d/1dQQiwctr_DZkEAZ0wWhYm44cqGrJ2HUv" alt="Mariposa" class="w-full h-full object-cover" />
                 </div>
-                <p class="mt-2 text-[8px] font-black uppercase tracking-[0.2em] text-emerald-800 text-center">Mariposa Monarca</p>
+                <p class="mt-2 text-[7px] md:text-[8px] font-black uppercase tracking-[0.1em] md:tracking-[0.2em] text-emerald-800 text-center">Mariposa Monarca</p>
             </div>
         </div>
 
         <!-- BLOQUE QR E INFORMACIÓN -->
-        <div class="flex flex-col md:flex-row items-center justify-between gap-10 w-full z-10 bg-emerald-50/50 p-10 rounded-[2.5rem] border-2 border-emerald-100">
-            <div class="flex flex-col items-center bg-white p-4 rounded-[2rem] shadow-xl border-4 border-[#064e3b]">
-                <!-- Código QR que apunta a tu GitHub Pages -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://ecolimonar.github.io/guia-biodiversidad/" alt="Código QR" class="w-44 h-44" />
-                <div class="mt-4 text-[9px] font-black uppercase tracking-widest text-[#064e3b]">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 w-full z-10 bg-emerald-50/50 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-2 border-emerald-100">
+            <div class="flex flex-col items-center bg-white p-3 md:p-4 rounded-[1.5rem] md:rounded-[2rem] shadow-xl border-2 md:border-4 border-[#064e3b]">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://ecolimonar.github.io/guia-biodiversidad/" alt="Código QR" class="w-32 h-32 md:w-44 md:h-44" />
+                <div class="mt-2 md:mt-4 text-[7px] md:text-[9px] font-black uppercase tracking-widest text-[#064e3b]">
                     Escanea con tu cámara
                 </div>
             </div>
 
             <div class="flex-1 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-2 mb-3 text-emerald-600">
-                    <i data-lucide="book-open" class="w-5 h-5"></i>
-                    <span class="font-black uppercase tracking-widest text-xs">Cuadernillo Digital</span>
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-2 md:mb-3 text-emerald-600">
+                    <i data-lucide="book-open" class="w-4 h-4 md:w-5 md:h-5"></i>
+                    <span class="font-black uppercase tracking-widest text-[10px] md:text-xs">Cuadernillo Digital</span>
                 </div>
-                <h2 class="text-3xl font-black text-stone-900 leading-none mb-4 uppercase">
+                <h2 class="text-xl md:text-3xl font-black text-stone-900 leading-tight mb-3 md:mb-4 uppercase">
                     Escanea para <br/> conocer la reserva
                 </h2>
-                <div class="space-y-2 mb-6 text-stone-500 font-bold text-xs uppercase tracking-wider">
-                    <p class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Guía de Campo Interactiva</p>
-                    <p class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Historias de cada especie</p>
-                    <p class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Check-list de avistamientos</p>
+                <div class="space-y-1 md:space-y-2 mb-4 md:mb-6 text-stone-500 font-bold text-[10px] md:text-xs uppercase tracking-wider">
+                    <p class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-emerald-500"></i> Guía Interactiva</p>
+                    <p class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="check" class="w-3 h-3 md:w-4 md:h-4 text-emerald-500"></i> Historias de especies</p>
+                    <p class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Check-list</p>
                 </div>
                 
-                <!-- Instagram -->
-                <div class="flex items-center justify-center md:justify-start gap-3 bg-white px-6 py-3 rounded-2xl border border-stone-200 shadow-sm w-fit mx-auto md:mx-0">
-                    <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                    <span class="font-black text-stone-800 text-lg">@limonarecohotel</span>
+                <div class="flex items-center justify-center md:justify-start gap-2 md:gap-3 bg-white px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl border border-stone-200 shadow-sm w-fit mx-auto md:mx-0">
+                    <i data-lucide="instagram" class="w-4 h-4 md:w-6 md:h-6 text-pink-600"></i>
+                    <span class="font-black text-stone-800 text-sm md:text-lg">@limonarecohotel</span>
                 </div>
             </div>
         </div>
 
         <!-- PIE DE PÁGINA -->
-        <div class="w-full text-center z-10 border-t border-stone-100 pt-6 mt-4">
-            <p class="text-stone-300 text-[9px] font-black uppercase tracking-[0.4em] mb-4">
-                Comprometidos con la conservación de El Limonar
+        <div class="w-full text-center z-10 border-t border-stone-100 pt-4 md:pt-6 mt-4">
+            <p class="text-stone-300 text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em] mb-3 md:mb-4">
+                Comprometidos con la conservación
             </p>
-            <div class="flex justify-center gap-8 text-emerald-800 opacity-20">
-                <i data-lucide="bird" class="w-6 h-6"></i>
-                <i data-lucide="leaf" class="w-6 h-6"></i>
-                <i data-lucide="map" class="w-6 h-6"></i>
+            <div class="flex justify-center gap-6 md:gap-8 text-emerald-800 opacity-20">
+                <i data-lucide="bird" class="w-5 h-5 md:w-6 md:h-6"></i>
+                <i data-lucide="leaf" class="w-5 h-5 md:w-6 md:h-6"></i>
+                <i data-lucide="map" class="w-5 h-5 md:w-6 md:h-6"></i>
             </div>
         </div>
     </div>
 
     <script>
-        // Inicializar iconos
         lucide.createIcons();
-
-        // Función para descargar el archivo HTML
-        function downloadHTML() {
-            const htmlContent = document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'poster_bio_limonar.html';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
     </script>
 </body>
 </html>
